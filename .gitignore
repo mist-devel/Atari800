@@ -1,6 +1,7 @@
 PLLJ_PLLSPE_INFO.txt
 *.bak
 *.qws
+build_id.v
 out/
 db/
 incremental_db/

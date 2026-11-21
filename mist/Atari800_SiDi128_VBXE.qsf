@@ -39,9 +39,9 @@
 
 # Project-Wide Assignments
 # ========================
-set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY out
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
-set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.2 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.1 Lite Edition"
 set_global_assignment -name PRE_FLOW_SCRIPT_FILE "quartus_sh:build_id.tcl"
 set_global_assignment -name SMART_RECOMPILE ON
 
@@ -407,6 +407,7 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VERILOG_MACRO "NO_DIRECT_UPLOAD=1"
 set_global_assignment -name VERILOG_MACRO "USE_QSPI=1"
 set_global_assignment -name VERILOG_MACRO "DUAL_SDRAM=1"
+set_global_assignment -name VERILOG_MACRO "VBXE=1"
 set_global_assignment -name VERILOG_MACRO "I2S_AUDIO=1"
 set_global_assignment -name VERILOG_MACRO "I2S_AUDIO_HDMI=1"
 set_global_assignment -name VERILOG_MACRO "SPDIF_AUDIO=1"
@@ -423,4 +424,6 @@ set_global_assignment -name AUTO_MERGE_PLLS OFF
 # Source files
 set_global_assignment -name SYSTEMVERILOG_FILE atari800_mist_top.sv
 set_global_assignment -name SDC_FILE atari800core.sdc
-set_global_assignment -name QIP_FILE rtl/files800.qip
+set_global_assignment -name QIP_FILE rtl/files800_vbxe.qip
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
