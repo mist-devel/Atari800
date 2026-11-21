@@ -26,8 +26,6 @@
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C25E144C8
 set_global_assignment -name TOP_LEVEL_ENTITY atari800_mist_top
-set_global_assignment -name ORIGINAL_QUARTUS_VERSION 7.2
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:27:29  OCTOBER 30, 2007"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
 set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_palace
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 144
@@ -140,14 +138,13 @@ set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_COLOR 2147039 -section_id Top
-set_global_assignment -name MISC_FILE atari800core.dpf
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 
 set_global_assignment -name PHYSICAL_SYNTHESIS_ASYNCHRONOUS_SIGNAL_PIPELINING ON
 set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA OFF
 set_global_assignment -name PHYSICAL_SYNTHESIS_MAP_LOGIC_TO_MEMORY_FOR_AREA OFF
 
-set_global_assignment -name PROJECT_OUTPUT_DIRECTORY out
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 
 set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
 set_global_assignment -name RESERVE_DATA0_AFTER_CONFIGURATION "USE AS REGULAR IO"
@@ -293,21 +290,14 @@ set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to VGA_B[3]
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to VGA_B[2]
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to VGA_B[1]
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to VGA_B[0]
+set_global_assignment -name VERILOG_MACRO "BIG_OSD=1"
 
 
+
+# ------------------------------------------------------------------
+# Source files
 set_global_assignment -name SYSTEMVERILOG_FILE atari800_mist_top.sv
-set_global_assignment -name VHDL_FILE atari800core_mist.vhd
 set_global_assignment -name SDC_FILE atari800core.sdc
-set_global_assignment -name QIP_FILE common/components/mist-modules/mist.qip
-set_global_assignment -name QIP_FILE zpu_rom.qip
-set_global_assignment -name VHDL_FILE DualPortRAM.vhd
-set_global_assignment -name VHDL_FILE switch_pal_ntsc.vhd
-set_global_assignment -name QIP_FILE pll_pal.qip
-set_global_assignment -name QIP_FILE pll_downstream_pal.qip
-set_global_assignment -name QIP_FILE video_pll_reconfig.qip
-set_global_assignment -name QIP_FILE clkctrl.qip
-set_global_assignment -name QIP_FILE pll_reconfig.qip
-set_global_assignment -name QIP_FILE pal_rom.qip
-set_global_assignment -name QIP_FILE ntsc_rom.qip
+set_global_assignment -name QIP_FILE rtl/files800.qip
 
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
